@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Victory</title>
+</head>
+<body style="background-color: #8CC461; font-family: 'Roboto', sans-serif;">
+    <div style="justify-content: center; text-align: center; margin-top: 40px;">
+        <!-- <img style="z-index: 0;" src="stars.png"> -->
+        <img style="z-index: 1;" src="Vector1.png">
+    </div>
+    <h1 style="text-align: center; color: white; font-size: 58px; font-weight: bolder;">HURRAY!!</h1>
+    <h3 style="text-align: center; color: white; font-size: 28px; margin-top: -30px;">YOU WON THE GAME</h3>
+    <div style="text-align: center;">
+        <button id="play" onclick="navigate()">PLAY AGAIN</button>
+    </div>
+
+    <footer id="ruleDiv">
+        <button id="rules">RULES</button> &nbsp;&nbsp;&nbsp;
+        <span id="nextButtonContainer"></span>
+    </footer>
+
+    <div id="rules-popup">
+        <div id="close-btn">X</div>
+        <h2 style="text-align: center;">Game Rules</h2>
+        <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+        </ul>
+      </div>
+
+      <script src="script.js"></script>
+</body>
+</html>

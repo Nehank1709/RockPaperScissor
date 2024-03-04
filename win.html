@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h3 style="margin: 0; padding: 0;" id="rps">
+            ROCK <br>
+            PAPER<br>
+            SCISSORS<br>
+        </h3>
+        <div id="score">
+            <button class="score-card">COMPUTER SCORE <br><span style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: bold;" id="computer-score">0</span></button> 
+            <br>
+            <button class="score-card">YOUR SCORE <br> <span style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: bold;" id="player-score">0</span></button>
+          </div>
+    </div>
+    
+    <div id="choice-made">
+        <!-- <div class="triangle"></div> -->
+        <div style="color: white;"><p style="text-align: center;font-family: 'Roboto', sans-serif;">YOU PICKED</p> <button class="btn" id="imageContainerUser" ></button></div>
+        <div style="padding-left: 20px; padding-right: 20px; margin: 20px;">
+            <div id="message" style="color: white; text-align: center; font-weight: bolder;font-family: 'Roboto', sans-serif;"></div> <br>
+
+            <button id="play" onclick="navigate()"></button>
+        </div>
+        <div style="color: white;"><p style="text-align: center;font-family: 'Roboto', sans-serif;">PC PICKED </p><button class="btn" id="imageContainerComputer" ></button></div>
+    </div>
+
+    <footer id="ruleDiv">
+        <button id="rules">RULES</button> &nbsp;&nbsp;&nbsp;
+        <span id="nextButtonContainer"></span>
+    </footer>
+
+    <div id="rules-popup">
+        <div id="close-btn">X</div>
+        <h2 style="text-align: center;">Game Rules</h2>
+        <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+        </ul>
+      </div>
+
+     <script>
+        window.onload = function () {
+            const selectedImage = sessionStorage.getItem('selectedImage');
+            const computerChoice = sessionStorage.getItem('computerChoice');
+            const message = document.getElementById('message');
+            const play = document.getElementById('play');
+            
+            let computerScore = localStorage.getItem('computerScore') || 0;
+            let playerScore = localStorage.getItem('playerScore') || 0;
+
+            document.getElementById('computer-score').innerText = computerScore;
+            document.getElementById('player-score').innerText = playerScore;
+
+            switch (selectedImage + computerChoice) {
+                case 'rockscissor':
+                case 'paperrock':
+                case 'scissorpaper':
+                  playerScore++;
+                message.innerText = 'YOU WIN AGAINST PC';
+                break;
+                case 'rockpaper':
+                case 'paperscissor':
+                case 'scissorrock':
+                  computerScore++;
+                message.innerText = 'YOU LOST AGAINST PC';
+                break;
+                default:
+                message.innerText = 'TIE UP';
+            }
+            
+            localStorage.setItem('computerScore', computerScore);
+            localStorage.setItem('playerScore', playerScore);
+
+            document.getElementById('computer-score').innerText = computerScore;
+            document.getElementById('player-score').innerText = playerScore;
+
+            sessionStorage.setItem('computerScore', computerScore);
+            sessionStorage.setItem('playerScore', playerScore);
+
+            if (selectedImage) {
+                const imageContainerUser = document.getElementById('imageContainerUser');
+                const imageElementUser = document.createElement('img');
+                imageElementUser.src = selectedImage + '.png'; // Path to your images
+                imageElementUser.id = 'selectedImage';
+                imageElementUser.alt = 'Selected Image';
+                // imageElementUser.style.position = 'absolute';
+                imageElementUser.style.width = '80px';
+                imageElementUser.style.height = '80px';
+                imageElementUser.style.backgroundColor = 'white'
+                imageElementUser.style.margin = '0 20px'
+                imageElementUser.style.padding = '10px';
+                imageElementUser.style.display = 'flex';
+                // imageElementUser.style.justifyContent = 'center';
+                // imageElementUser.style.alignItems ='center'
+                imageElementUser.style.borderRadius = '50%';
+                imageElementUser.style.border = getBorderColor(selectedImage);
+                imageContainerUser.appendChild(imageElementUser);
+            }
+
+            if (computerChoice) {
+                const imageContainerComputer = document.getElementById('imageContainerComputer');
+                const imageElementComputer = document.createElement('img');
+                imageElementComputer.src = computerChoice + '.png'; // Path to your images
+                imageElementComputer.id = 'computerChoice';
+                imageElementComputer.alt = 'Selected Image By Computer';
+                // imageElementComputer.style.position = 'absolute';
+                imageElementComputer.style.width = '80px';
+                imageElementComputer.style.height = '80px';
+                imageElementComputer.style.backgroundColor = 'white'
+                imageElementComputer.style.margin = '0 20px'
+                imageElementComputer.style.padding = '10px';
+                imageElementComputer.style.display = 'flex';
+                // imageElementComputer.style.justifyContent = 'center';
+                // imageElementComputer.style.alignItems ='center'
+                imageElementComputer.style.borderRadius = '50%';
+                imageElementComputer.style.border = getBorderColor(computerChoice);
+                imageContainerComputer.appendChild(imageElementComputer);
+            }
+
+
+            if (message.innerText === 'YOU WIN AGAINST PC') {
+                const nextButtonContainer = document.getElementById('nextButtonContainer');
+                const nextButton = document.createElement('button');
+                nextButton.textContent = 'NEXT';
+                nextButton.id = 'nextButton';
+                nextButton.onclick = function() {
+                    // Redirect to the next page
+                    // window.open('victory.html', '_blank');
+                    window.location.href = 'victory.html';
+                };
+                nextButtonContainer.appendChild(nextButton);
+            }
+
+            if (message.innerText === 'YOU WIN AGAINST PC' || message.innerText === 'YOU LOST AGAINST PC') {
+                play.innerText = "PLAY AGAIN";
+            }
+
+            else{
+                play.innerText = "REPLAY";
+            }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

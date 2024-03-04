@@ -1,0 +1,189 @@
+
+body {
+    background-color: #8CC461;
+}
+
+/* #game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  } */
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid white;
+    border-radius: 15px;
+    margin: 30px 300px 20px 300px;
+    padding: 6px;
+}
+
+#rps {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 26px;
+    
+}
+
+#rules, #nextButton, #play {
+    color: white;
+    background-color: #8CC461;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 9px;
+    padding: 6px 15px 6px 15px;
+    cursor: pointer;
+}
+
+#play {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border: 2px solid white;
+    border-radius: 9px;
+    padding: 6px 15px 6px 15px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    width: 130px;
+}
+
+#score {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.score-card {
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin: 5px;
+    width: 90px;
+    height:90px;
+}
+
+#choices {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+#choice-made{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 65px 400px 20px 330px;
+    padding: 40px;
+}
+
+  .circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    /* border: 4px solid white;
+    border-radius: 50%; */
+    margin: 0 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle:nth-child(1) {
+    top: 270px;
+    left: 450px;
+    border: 10px solid #0074B6;
+    border-radius: 50%;
+  }
+  
+  .circle:nth-child(2) {
+    top: 270px;
+    right: 450px;
+    border: 10px solid #BD00FF;
+    border-radius: 50%;
+  }
+
+  .circle:nth-child(3) {
+    top: 420px;
+    right: 500px;
+    transform: translateX(-50%);
+    border: 10px solid #FFA943;
+    border-radius: 50%;
+  }
+  
+  /* .line1 {
+    width: 100%;
+    height: 2px; /* Adjust the thickness of the line as needed */
+    /* background-color: black; */ 
+  /* } */
+
+  #ruleDiv {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align items to the end (right side) */
+    padding: 20px;
+  }
+
+  #rules-popup {
+    display: none;
+    position: fixed;
+    top: 60%;
+    left: 82%;
+    transform: translate(-15%, -51%);
+    padding: 5px 5px 5px 0;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #004429;
+    color: white;
+  }
+
+  ul {
+    list-style-type: square; /* Set bullet point style to filled circle */
+    font-size: 14px;
+}
+
+  ul li::before {
+    content: "\2022"; /* Unicode for bullet character */
+    color: yellow; /* Set color to yellow */
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+  #close-btn {
+    position: absolute;
+    top: -16px;
+    right: -14px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    border: 4px solid white;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .btn {
+    border: none; /* Remove border */
+    background-color: transparent; /* Remove background color */
+    padding: 0; /* Remove padding */
+    font: inherit; /* Inherit font properties */
+    cursor: pointer; /* Change cursor to pointer */
+    outline: none; /* Remove outline */
+    /* Add any additional styles as needed */
+}
+
+

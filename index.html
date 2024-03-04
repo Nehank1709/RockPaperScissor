@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+    <div id="container">
+        <h3 style="margin: 0; padding: 0;" id="rps">
+            ROCK <br>
+            PAPER<br>
+            SCISSORS<br>
+        </h3>
+        <div id="score">
+            <button class="score-card">COMPUTER SCORE <br><span style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: bold;" id="computer-score">0</span></button> 
+            <br>
+            <button class="score-card">YOUR SCORE <br> <span style="font-size: 40px; font-family: 'Roboto', sans-serif; font-weight: bold;" id="player-score">0</span></button>
+          </div>
+    </div>
+    
+    <div id="choices">
+        <!-- <div class="triangle"></div> -->
+        <div class="circle">
+            <button class="btn" onclick="selectImage('rock')"><img src="rock.png" alt="Rock"></button>
+        </div>
+        <div class="circle">
+            <button class="btn" onclick="selectImage('scissor')"><img src="scissor.png" alt="Scissor"></button>
+        </div>
+        <div class="circle">
+            <button class="btn" onclick="selectImage('paper')"><img src="paper.png" alt="Paper"></button>
+        </div>
+
+        <!-- <div class="line1"></div> -->
+    </div>
+</div>
+
+    <div id="rules-popup">
+        <div id="close-btn">X</div>
+        <h2 style="text-align: center;">Game Rules</h2>
+        <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+        </ul>
+      </div>
+
+    <footer id="ruleDiv">
+        <button id="rules">RULES</button>
+    </footer>
+
+    <script>
+        const computerScore = sessionStorage.getItem('computerScore');
+        const playerScore = sessionStorage.getItem('playerScore');
+
+        document.getElementById('computer-score').innerText = computerScore;
+        document.getElementById('player-score').innerText = playerScore;
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
